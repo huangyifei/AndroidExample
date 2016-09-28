@@ -120,4 +120,5 @@ protected void onRestoreInstanceState(Bundle savedInstanceState) {
 
 ##参考文献
 
-[Android中SaveState原理分析](http://www.jianshu.com/p/520e6b47c57b)
+* [Android中SaveState原理分析](http://www.jianshu.com/p/520e6b47c57b)
+* [参考源码](https://gitlab.ws.netease.com/huangyifei/AndroidExamples.git)
