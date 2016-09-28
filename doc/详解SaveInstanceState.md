@@ -1,5 +1,7 @@
 ##认识SavedInstance
+
 ###onSaveInstanceState时系统做了些什么
+
 在`Activity`被回收之前，系统会调用`onSaveInstanceState(Bundle outState)`来保存`View`的状态到传入的`outState`对象中。
 
 1. 保存Window
@@ -16,7 +18,9 @@ protected void onSaveInstanceState(Bundle outState) {
     getApplication().dispatchActivitySaveInstanceState(this, outState);
 }
 ```
+
 ###onRestoreInstanceState时系统做了些什么
+
 在`Activity`被重新创建时，`onCreate(Bundle savedInstanceState)`和`onRestoreInstanceState(Bundle savedInstanceState)`会传入保存的状态信息并恢复`View`的状态。
 
 1. onCreate重建Fragment
