@@ -19,7 +19,7 @@ protected void onSaveInstanceState(Bundle outState) {
 }
 ```
 
-###onRestoreInstanceState时系统做了些什么
+### onRestoreInstanceState时系统做了些什么
 
 在`Activity`被重新创建时，`onCreate(Bundle savedInstanceState)`和`onRestoreInstanceState(Bundle savedInstanceState)`会传入保存的状态信息并恢复`View`的状态。
 
@@ -64,7 +64,7 @@ protected void onRestoreInstanceState(Bundle savedInstanceState) {
 }
 ```
 
-###Window在save和restore时对View的处理包括。
+### Window在save和restore时对View的处理包括。
 
 1. Save时，遍历View的树状结构调用 `Parcelable onSaveInstanceState()`
 2. 以View的id为key在Window的`SparseArray<Parcelable>`中保存这些 `Parcelable`
@@ -72,7 +72,8 @@ protected void onRestoreInstanceState(Bundle savedInstanceState) {
 4. 遍历View的树状结构调用 `onRestoreInstanceState(Parcelable state)`
 5. View根据id获取自己的state并恢复
 
-###小结
+### 小结
+
 1. Save和Restore的机制主要是用于保存和恢复View的
 2. 没有id的View是不会被保存状态的
 3. 如果id重复，则View的状态会被覆盖
@@ -81,11 +82,12 @@ protected void onRestoreInstanceState(Bundle savedInstanceState) {
 
 关于这部分的详细源码分析可参考[Android中SaveState原理分析](http://www.jianshu.com/p/520e6b47c57b)。
 
-##什么时候会Save和Restore
+## 什么时候会Save和Restore
+
 1. `onSaveInstanceState`在Activity不可见时就会被调用，除非被主动销毁的
 2. `onRestoreInstanceState`只有在Activity被动销毁后才会调用，一般系统只会在资源不够时才会销毁Activity。
 
-###后台Task被销毁
+### 后台Task被销毁
 1. 后台应用：应用处于后台，系统资源不够时
 2. 后台Task：应用有多个Task，处于后台的Task
 
@@ -94,7 +96,8 @@ protected void onRestoreInstanceState(Bundle savedInstanceState) {
 >1. `ViewPager`通过`Adapter`重建的`Fragment`，不做特殊处理也不会重复
 >2. `ViewPager`会记录销毁时的位置，以及`Fragment`的信息
 
-###Task处于前台时
+### Task处于前台时
+
 1. OutOfMemory时被销毁重建
 2. FragmentStatePagerAdapter：和其它情况不同，但确实也要考虑Fragment的销毁和重建
 
@@ -104,7 +107,8 @@ protected void onRestoreInstanceState(Bundle savedInstanceState) {
 >2. 在`onCreate`判断是否为恢复的Activity，避免重复添加`Fragment`
 >3. `InstanceImageFragment`通过`SaveInstance`保存图片大小
 
-##SavedInstance和应用的内存问题
+## SavedInstance和应用的内存问题
+
 1. SaveInstantceState不能直接解决内存问题
 2. 考虑好Save和Restore的机制，可以在异常时快速的使应用恢复正常状态
    * `Fragment`和`Activity`的`onCreate`中根据`savedInstatnceState`决定获取数据的逻辑
@@ -115,4 +119,5 @@ protected void onRestoreInstanceState(Bundle savedInstanceState) {
    * 后台的Task被销毁后，可以依赖SavedInstance重建
 
 ##参考文献
-http://www.jianshu.com/p/520e6b47c57b
+
+[Android中SaveState原理分析](http://www.jianshu.com/p/520e6b47c57b)
