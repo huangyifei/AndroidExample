@@ -22,10 +22,19 @@
             </intent-filter>
         </activity>
 
+        <!-- demo for SaveState-->
         <activity android:name=".instantancestate.InstanceActivityOne" />
         <activity
             android:name=".instantancestate.InstanceActivityTwo"
             android:launchMode="singleInstance" />
+
+        <!-- demo for Task-->
+        <activity android:name=".tasks.StandardActivity" />
+        <activity
+
+            android:name=".tasks.SingleTaskAcitivity"
+            android:launchMode="singleTask" />
+
     </application>
 
 </manifest>
