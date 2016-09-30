@@ -25,15 +25,15 @@ public class InstanceActivityOne extends BaseActivity {
 
     }
 
-    public void launchOne(View view) {
-        InstanceImageFragment.sAutoLaunch = true;
-        launch(this);
-    }
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("old", 1);
+    }
+
+    public void launchOne(View view) {
+        InstanceImageFragment.sAutoLaunch = true;
+        InstanceActivityOne.launch(this);
     }
 
     public void launchTwo(View view) {

@@ -22,7 +22,6 @@ public class InstanceActivityTwo extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ActivityManager am = null;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewpager);
         ViewPager viewPager = (ViewPager) findViewById(R.id.vp);
@@ -37,11 +36,12 @@ public class InstanceActivityTwo extends BaseActivity {
     }
 
     public void launchTwo(View view) {
-        launch(this);
+        InstanceActivityTwo.launch(this);
     }
 
     public static void launch(Activity activity) {
-        activity.startActivity(new Intent(activity, InstanceActivityTwo.class));
+        Intent intent = new Intent(activity, InstanceActivityTwo.class);
+        activity.startActivity(intent);
     }
 
 

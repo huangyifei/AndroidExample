@@ -36,6 +36,9 @@ public class InstanceImageFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
         if (savedInstanceState != null && savedInstanceState.containsKey("size")) {
             imgSize = savedInstanceState.getInt("size");
+            if (BaseActivity.mImgSize == 0) {
+                BaseActivity.mImgSize = imgSize + 4;
+            }
         } else {
             if (BaseActivity.mImgSize == 0) {
                 BaseActivity.mImgSize = 300;

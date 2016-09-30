@@ -1,5 +1,6 @@
 package com.huangyifei.android.examples;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -63,4 +64,9 @@ public class BaseActivity extends FragmentActivity {
         Log.w(getClass().getSimpleName(), hashCode() + "onDestroy");
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.w(getClass().getSimpleName(), hashCode() + "onNewIntent");
+    }
 }
