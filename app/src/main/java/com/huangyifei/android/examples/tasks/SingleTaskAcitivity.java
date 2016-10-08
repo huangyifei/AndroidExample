@@ -23,7 +23,7 @@ public class SingleTaskAcitivity extends BaseActivity {
 
 
     public void launchNormal(View view) {
-        StandardActivity.launchNewTask(this);
+        NewProcessActivity.launch(this);
     }
 
     public void launchSingleTask(View view) {

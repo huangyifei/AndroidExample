@@ -13,6 +13,7 @@ import android.view.View;
 
 import com.huangyifei.android.examples.BaseActivity;
 import com.huangyifei.android.examples.R;
+import com.huangyifei.android.examples.tasks.SingleTaskAcitivity;
 
 /**
  * Created by huangyifei on 16/9/26.
@@ -32,7 +33,7 @@ public class InstanceActivityTwo extends BaseActivity {
     }
 
     public void launchOne(View view) {
-        InstanceActivityOne.launch(this);
+        SingleTaskAcitivity.launch(this);
     }
 
     public void launchTwo(View view) {

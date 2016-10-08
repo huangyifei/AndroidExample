@@ -27,7 +27,8 @@ public class StandardActivity extends BaseActivity {
     }
 
     public void launchSingleTask(View view) {
-        SingleTaskAcitivity.launch(this);
+        NewProcessActivity.launch(this);
+//        SingleTaskAcitivity.launch(this);
     }
 
 

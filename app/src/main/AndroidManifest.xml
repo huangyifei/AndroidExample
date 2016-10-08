@@ -31,9 +31,13 @@
         <!-- demo for Task-->
         <activity android:name=".tasks.StandardActivity" />
         <activity
-
+            android:taskAffinity="com.huangyifei.android.examples.a"
             android:name=".tasks.SingleTaskAcitivity"
             android:launchMode="singleTask" />
+
+        <activity
+            android:name=".tasks.NewProcessActivity"
+            android:process=":new" />
 
     </application>
 
