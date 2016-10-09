@@ -14,7 +14,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +24,8 @@
         </activity>
 
         <!-- demo for SaveState-->
-        <activity android:name=".instantancestate.InstanceActivityOne" />
+        <activity android:name=".instantancestate.InstanceActivityOne"
+            android:process=":new" />
         <activity
             android:name=".instantancestate.InstanceActivityTwo"
             android:launchMode="singleInstance" />
@@ -31,13 +33,21 @@
         <!-- demo for Task-->
         <activity android:name=".tasks.StandardActivity" />
         <activity
-            android:taskAffinity="com.huangyifei.android.examples.a"
             android:name=".tasks.SingleTaskAcitivity"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:taskAffinity="com.huangyifei.android.examples.a" />
 
         <activity
             android:name=".tasks.NewProcessActivity"
             android:process=":new" />
+        <activity android:name=".tasks.ReparentRootActivity" />
+        <activity
+            android:name=".tasks.ReparentBranchActivity"
+            android:taskAffinity="rep.branch" />
+        <activity
+            android:name=".tasks.ReparentActivity"
+            android:allowTaskReparenting="true"
+            android:taskAffinity="rep.branch" />
 
     </application>
 
