@@ -2,6 +2,7 @@ package com.huangyifei.android.examples.instantancestate;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
@@ -22,7 +23,6 @@ public class InstanceActivityOne extends BaseActivity {
         if (savedInstanceState == null || !savedInstanceState.containsKey("old")) {
             getSupportFragmentManager().beginTransaction().add(R.id.content, Fragment.instantiate(this, InstanceImageFragment.class.getName())).commit();
         }
-
     }
 
     @Override
@@ -32,8 +32,14 @@ public class InstanceActivityOne extends BaseActivity {
     }
 
     public void launchOne(View view) {
-        InstanceImageFragment.sAutoLaunch = true;
-        InstanceActivityOne.launch(this);
+        if (!InstanceImageFragment.sAutoLaunch) {
+            InstanceImageFragment.sAutoLaunch = true;
+            InstanceActivityOne.launch(this);
+        } else {
+            String test = null;
+            test.length();
+        }
+
     }
 
     public void launchTwo(View view) {

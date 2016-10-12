@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.huangyifei.android.examples.instantancestate.InstanceActivityOne;
 import com.huangyifei.android.examples.instantancestate.InstanceImageFragment;
+import com.huangyifei.android.examples.savestate.ActivityOne;
 import com.huangyifei.android.examples.tasks.ReparentRootActivity;
 import com.huangyifei.android.examples.tasks.StandardActivity;
 
@@ -33,8 +34,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public void showInstanceState(View view) {
-        InstanceImageFragment.sAutoLaunch = false;
-        InstanceActivityOne.launch(this);
+        ActivityOne.launch(this);
     }
 
     public void showTaskActivity(View view) {

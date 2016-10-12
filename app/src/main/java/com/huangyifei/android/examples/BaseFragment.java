@@ -19,27 +19,27 @@ public class BaseFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.w(getClass().getSimpleName(), hashCode() + "onCreate:");
+        Log.w(getClass().getSimpleName(), hashCode() + "-onCreate:");
         checkInstance(savedInstanceState);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Log.w(getClass().getSimpleName(), hashCode() + "onCreateView:" + getActivity().hashCode());
+        Log.w(getClass().getSimpleName(), hashCode() + "-onCreateView:" + getActivity().hashCode());
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.d(getClass().getSimpleName(), hashCode() + "onViewCreated:");
+        Log.d(getClass().getSimpleName(), hashCode() + "-onViewCreated:");
     }
 
     @Override
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
-        Log.w(getClass().getSimpleName(), hashCode() + "onViewStateRestored:");
+        Log.w(getClass().getSimpleName(), hashCode() + "-onViewStateRestored:");
         checkInstance(savedInstanceState);
     }
 
@@ -47,13 +47,13 @@ public class BaseFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(KEY, hashCode());
-        Log.w(getClass().getSimpleName(), hashCode() + "onSaveInstanceState:");
+        Log.w(getClass().getSimpleName(), hashCode() + "-onSaveInstanceState:");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.w(getClass().getSimpleName(), hashCode() + "onDestroy:" + getActivity().hashCode());
+        Log.w(getClass().getSimpleName(), hashCode() + "-onDestroy:" + getActivity().hashCode());
     }
 
     private void checkInstance(Bundle instance) {

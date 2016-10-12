@@ -33,7 +33,7 @@ public class InstanceActivityTwo extends BaseActivity {
     }
 
     public void launchOne(View view) {
-        SingleTaskAcitivity.launch(this);
+        InstanceActivityOne.launch(this);
     }
 
     public void launchTwo(View view) {
@@ -49,6 +49,8 @@ public class InstanceActivityTwo extends BaseActivity {
     public class MyAdapter extends FragmentStatePagerAdapter {
         public MyAdapter(FragmentManager fm) {
             super(fm);
+
+
         }
 
         @Override

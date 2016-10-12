@@ -73,7 +73,7 @@ public class InstanceImageFragment extends BaseFragment {
 
                     @Override
                     public boolean onResourceReady(GlideDrawable resource, CustomImageSizeModelFutureStudio model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                        if (sAutoLaunch && BaseActivity.mImgSize < 1000) {
+                        if (sAutoLaunch && BaseActivity.mImgSize < 700) {
                             iv.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
