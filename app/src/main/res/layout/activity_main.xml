@@ -10,17 +10,11 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.huangyifei.android.examples.MainActivity">
+    tools:context="com.huangyifei.android.androidexample.MainActivity">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="showInstanceState"
-        android:text="Save State" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="showTaskActivity"
-        android:text="Task Example" />
+        android:onClick="launchSaveState"
+        android:text="测试SaveState" />
 </LinearLayout>

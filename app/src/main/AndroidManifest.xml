@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.huangyifei.android.examples">
-
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    package="com.huangyifei.android.androidexample">
 
     <application
         android:allowBackup="true"
@@ -14,9 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
-            android:clearTaskOnLaunch="true">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,32 +20,6 @@
         <activity
             android:name=".savestate.ActivityTwo"
             android:launchMode="singleInstance" />
-
-        <!-- demo for SaveState-->
-        <activity android:name=".instantancestate.InstanceActivityOne" />
-        <activity
-            android:name=".instantancestate.InstanceActivityTwo"
-            android:launchMode="singleInstance" />
-
-        <!-- demo for Task-->
-        <activity android:name=".tasks.StandardActivity" />
-        <activity
-            android:name=".tasks.SingleTaskAcitivity"
-            android:launchMode="singleTask"
-            android:taskAffinity="com.huangyifei.android.examples.a" />
-
-        <activity
-            android:name=".tasks.NewProcessActivity"
-            android:process=":new" />
-        <activity android:name=".tasks.ReparentRootActivity" />
-        <activity
-            android:name=".tasks.ReparentBranchActivity"
-            android:taskAffinity="rep.branch" />
-        <activity
-            android:name=".tasks.ReparentActivity"
-            android:allowTaskReparenting="true"
-            android:taskAffinity="rep.branch" />
-
     </application>
 
 </manifest>
