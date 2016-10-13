@@ -20,6 +20,9 @@
         <activity
             android:name=".savestate.ActivityTwo"
             android:launchMode="singleInstance" />
+        <activity
+            android:name=".savestate.ActivityThree"
+            android:launchMode="singleInstance" />
     </application>
 
 </manifest>

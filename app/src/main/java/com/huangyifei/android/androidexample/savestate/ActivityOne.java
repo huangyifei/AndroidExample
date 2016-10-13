@@ -35,6 +35,10 @@ public class ActivityOne extends BaseActivity {
         ActivityTwo.launch(this, "prefix");
     }
 
+    public void launchThree(View view) {
+        ActivityThree.launch(this);
+    }
+
     /**
      * 第一次点击使内存接近进程能获取的内存上限,再次点击触发OOM
      * @param view

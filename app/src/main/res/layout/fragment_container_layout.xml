@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.huangyifei.android.examples.style.RootView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:fitsSystemWindows="true"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -10,4 +9,4 @@
         android:layout_height="match_parent"
         android:orientation="vertical" />
 
-</com.huangyifei.android.examples.style.RootView>
+</RelativeLayout>

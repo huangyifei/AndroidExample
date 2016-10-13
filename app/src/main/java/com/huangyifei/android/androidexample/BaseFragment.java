@@ -14,13 +14,11 @@ import android.widget.TextView;
  */
 
 public class BaseFragment extends Fragment {
-    public static final String KEY = "key";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.w(getClass().getSimpleName(), hashCode() + "-onCreate:");
-        checkInstance(savedInstanceState);
     }
 
     @Nullable
@@ -40,13 +38,11 @@ public class BaseFragment extends Fragment {
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
         Log.w(getClass().getSimpleName(), hashCode() + "-onViewStateRestored:");
-        checkInstance(savedInstanceState);
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(KEY, hashCode());
         Log.w(getClass().getSimpleName(), hashCode() + "-onSaveInstanceState:");
     }
 
@@ -56,11 +52,4 @@ public class BaseFragment extends Fragment {
         Log.w(getClass().getSimpleName(), hashCode() + "-onDestroy:" + getActivity().hashCode());
     }
 
-    private void checkInstance(Bundle instance) {
-        if (instance == null) {
-            Log.w(getClass().getSimpleName(), hashCode() + " empty instance");
-        } else if (instance.containsKey(KEY)) {
-            Log.w(getClass().getSimpleName(), hashCode() + "instance:" + instance.get(KEY));
-        }
-    }
 }
