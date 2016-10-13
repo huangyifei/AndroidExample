@@ -7,6 +7,9 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.huangyifei.android.androidexample.BaseActivity;
 import com.huangyifei.android.androidexample.R;
@@ -29,7 +32,7 @@ public class ActivityOne extends BaseActivity {
     }
 
     public void launchTwo(View view) {
-        ActivityTwo.launch(this);
+        ActivityTwo.launch(this, "prefix");
     }
 
     /**
