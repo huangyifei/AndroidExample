@@ -17,4 +17,9 @@
         android:layout_height="wrap_content"
         android:onClick="launchSaveState"
         android:text="测试SaveState" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="launchTask"
+        android:text="测试Task" />
 </LinearLayout>

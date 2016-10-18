@@ -23,6 +23,12 @@
         <activity
             android:name=".savestate.ActivityThree"
             android:launchMode="singleInstance" />
+
+        <activity android:name=".task.MultiTaskActivity"
+            android:taskAffinity=".a"
+            android:documentLaunchMode="never"
+            />
+
     </application>
 
 </manifest>
