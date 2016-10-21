@@ -24,10 +24,11 @@
             android:name=".savestate.ActivityThree"
             android:launchMode="singleInstance" />
 
-        <activity android:name=".task.MultiTaskActivity"
-            android:taskAffinity=".a"
-            android:documentLaunchMode="never"
-            />
+        <activity
+            android:name=".task.MultiTaskActivity"
+            android:launchMode="singleInstance" />
+
+        <activity android:name=".mvplist.TestListActivity" />
 
     </application>
 

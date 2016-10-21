@@ -1,12 +1,10 @@
 package com.huangyifei.android.androidexample;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.huangyifei.android.androidexample.savestate.ActivityOne;
-import com.huangyifei.android.androidexample.task.MultiTaskActivity;
+import com.huangyifei.android.androidexample.mvplist.TestListActivity;
 
 public class MainActivity extends BaseActivity {
     public static final String TAG = MainActivity.class.getName();
@@ -22,6 +20,6 @@ public class MainActivity extends BaseActivity {
     }
 
     public void launchTask(View view) {
-        MultiTaskActivity.launch(this);
+        TestListActivity.launch(this);
     }
 }
