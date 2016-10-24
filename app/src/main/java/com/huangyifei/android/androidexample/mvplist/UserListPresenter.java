@@ -1,10 +1,8 @@
 package com.huangyifei.android.androidexample.mvplist;
 
-import android.util.Log;
-
 import com.huangyifei.android.androidexample.mvplist.base.LceListPresenter;
 import com.huangyifei.android.androidexample.mvplist.model.UserListModel;
-import com.huangyifei.android.androidexample.mvplist.model.UserModel;
+import com.huangyifei.android.androidexample.mvplist.model.UserListModel.UserModel;
 
 /**
  * Created by huangyifei on 16/10/21.

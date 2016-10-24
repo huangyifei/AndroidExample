@@ -6,6 +6,6 @@ import java.util.List;
  * Created by huangyifei on 16/10/21.
  */
 
-public interface IListModel<IM> {
-    List<IM> getData();
+public interface IListModel<M> {
+    List<M> getData();
 }

@@ -11,7 +11,7 @@ import java.util.List;
  * Created by huangyifei on 16/10/21.
  */
 
-public class UserListModel implements IListModel<UserModel> {
+public class UserListModel implements IListModel<UserListModel.UserModel> {
     public List<UserModel> mData;
 
     public UserListModel() {
@@ -36,7 +36,7 @@ public class UserListModel implements IListModel<UserModel> {
                 }
                 UserListModel model = new UserListModel();
                 for (int i = 0; i < 100; i++) {
-                    model.mData.add(new UserModel("Name:" + i));
+                    model.mData.add(new UserModel("Name:" + i, i));
                 }
                 return model;
             }
@@ -50,5 +50,16 @@ public class UserListModel implements IListModel<UserModel> {
 
     public interface LoadFinishListener {
         void onLoadFinish(UserListModel userListModel);
+    }
+
+    public static class UserModel {
+        public UserModel(String name, int index) {
+            this.name = name;
+            this.index = index;
+        }
+
+        public String name;
+
+        public int index;
     }
 }

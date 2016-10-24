@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.huangyifei.android.androidexample.mvplist.base.BaseViewHolder;
-import com.huangyifei.android.androidexample.mvplist.model.UserModel;
+import com.huangyifei.android.androidexample.mvplist.model.UserListModel.UserModel;
 
 /**
  * Created by huangyifei on 16/10/21.

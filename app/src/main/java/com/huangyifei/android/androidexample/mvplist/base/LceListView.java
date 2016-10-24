@@ -22,13 +22,13 @@ import java.util.List;
  * Created by huangyifei on 16/10/21.
  */
 
-public abstract class LceListView<IM> extends MvpFrameLayout<LceListView<IM>, LceListPresenter<IM>> implements ILceListView<IM, IListModel<IM>>, LoadMorePresenter.LoadMoreListener {
+public abstract class LceListView<M> extends MvpFrameLayout<LceListView<M>, LceListPresenter<M>> implements ILceListView<M, IListModel<M>>, LoadMorePresenter.LoadMoreListener {
 
     private ProgressBar mProgressBar;
     private SwipeRefreshLayout mContent;
     private TextView mErrorView;
     private LoadMoreView mLoadMoreView;
-    private BaseListAdapter<IM> mAdapter;
+    private BaseListAdapter<M> mAdapter;
 
 
     public LceListView(Context context) {
@@ -87,10 +87,15 @@ public abstract class LceListView<IM> extends MvpFrameLayout<LceListView<IM>, Lc
         });
 
         mLoadMoreView = new LoadMoreView(c);
-        mAdapter = new BaseListAdapter<IM>(mLoadMoreView) {
+        mAdapter = new BaseListAdapter<M>(mLoadMoreView) {
             @Override
-            public BaseViewHolder<IM> onCreateItemViewHolder(ViewGroup parent, int viewType) {
+            public BaseViewHolder<M> onCreateItemViewHolder(ViewGroup parent, int viewType) {
                 return LceListView.this.createViewHolder(parent, viewType);
+            }
+
+            @Override
+            public int getItemViewType(M model) {
+                return LceListView.this.getItemViewType(model);
             }
         };
         recyclerView.setAdapter(mAdapter);
@@ -133,8 +138,8 @@ public abstract class LceListView<IM> extends MvpFrameLayout<LceListView<IM>, Lc
     }
 
     @Override
-    public void setData(IListModel<IM> data) {
-        mAdapter.setData(data.getData());
+    public void setData(IListModel<M> listModel) {
+        mAdapter.setData(listModel.getData());
         mLoadMoreView.getPresenter().setState(LoadMorePresenter.STATE_NORMAL);
         showContent();
     }
@@ -145,16 +150,16 @@ public abstract class LceListView<IM> extends MvpFrameLayout<LceListView<IM>, Lc
     }
 
     @Override
-    public void addData(IListModel<IM> data) {
+    public void addData(IListModel<M> listModel) {
         LoadMorePresenter presenter = mLoadMoreView.getPresenter();
-        if (data == null) {
+        if (listModel == null) {
             presenter.setState(LoadMorePresenter.STATE_ERROR);
         } else {
-            List<IM> listData = data.getData();
+            List<M> listData = listModel.getData();
             if (listData.isEmpty()) {
                 presenter.setState(LoadMorePresenter.STATE_FINISHED);
             } else {
-                mAdapter.addData(data.getData());
+                mAdapter.addData(listModel.getData());
                 presenter.setState(LoadMorePresenter.STATE_NORMAL);
             }
         }
@@ -185,5 +190,6 @@ public abstract class LceListView<IM> extends MvpFrameLayout<LceListView<IM>, Lc
         Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
     }
 
-    public abstract BaseViewHolder<IM> createViewHolder(ViewGroup parent, int viewType);
+    public abstract BaseViewHolder<M> createViewHolder(ViewGroup parent, int viewType);
+    public abstract int getItemViewType(M model);
 }

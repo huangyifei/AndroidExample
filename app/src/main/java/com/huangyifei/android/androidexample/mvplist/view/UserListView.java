@@ -10,7 +10,7 @@ import com.huangyifei.android.androidexample.mvplist.UserListPresenter;
 import com.huangyifei.android.androidexample.mvplist.base.BaseViewHolder;
 import com.huangyifei.android.androidexample.mvplist.base.LceListPresenter;
 import com.huangyifei.android.androidexample.mvplist.base.LceListView;
-import com.huangyifei.android.androidexample.mvplist.model.UserModel;
+import com.huangyifei.android.androidexample.mvplist.model.UserListModel.UserModel;
 
 /**
  * Created by huangyifei on 16/10/21.
@@ -42,6 +42,17 @@ public class UserListView extends LceListView<UserModel> {
 
     @Override
     public BaseViewHolder<UserModel> createViewHolder(ViewGroup parent, int viewType) {
-        return new UserViewHolder(new TextView(parent.getContext()));
+        TextView tv = new TextView(parent.getContext());
+        if (viewType == 0) {
+            tv.setTextColor(0xFFFF0000);
+        } else {
+            tv.setTextColor(0xFF00FF00);
+        }
+        return new UserViewHolder(tv);
+    }
+
+    @Override
+    public int getItemViewType(UserModel model) {
+        return model.index % 2;
     }
 }
