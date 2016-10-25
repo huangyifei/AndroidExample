@@ -6,26 +6,33 @@ import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
  * Created by huangyifei on 16/10/21.
  */
 
-public class LceListPresenter<M> extends MvpBasePresenter<LceListView<M>> {
-    public static final int LOAD_PULL_REFRESH = 1;
-    public static final int LOAD_OTHER_REFRESH = 2;
-    public static final int LOAD_MORE = 3;
+public abstract class LceListPresenter<M> extends MvpBasePresenter<LceListView<M>> implements ILceListPresenter, LoadMorePresenter.LoadMoreListener {
+    private LoadMorePresenter mLoadMorePresenter;
 
+    @Override
+    public void refreshData(boolean pullToRefresh) {
+        getView().showLoading(pullToRefresh);
+    }
 
-    public void loadData(int loadType) {
-        if (!isViewAttached()) return;
-        switch (loadType) {
-            case LOAD_PULL_REFRESH:
-                getView().showLoading(true);
-                break;
-            case LOAD_OTHER_REFRESH:
-                getView().showLoading(false);
-                break;
-            case LOAD_MORE:
-                //TODO change load more view
-                break;
-            default:
-                break;
-        }
+    @Override
+    public void setLoadMoreState(int state) {
+        if (mLoadMorePresenter == null) return;
+        mLoadMorePresenter.setLoadMoreState(state);
+    }
+
+    @Override
+    public void attachView(LceListView<M> view) {
+        super.attachView(view);
+        refreshData(false);
+    }
+
+    @Override
+    public void onLoadMore() {
+        loadMoreData();
+    }
+
+    public void setLoadMorePresenter(LoadMorePresenter presenter) {
+        mLoadMorePresenter = presenter;
+        mLoadMorePresenter.setLoadMoreListener(this);
     }
 }

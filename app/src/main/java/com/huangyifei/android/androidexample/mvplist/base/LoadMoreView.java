@@ -13,14 +13,16 @@ import com.hannesdorfmann.mosby.mvp.layout.MvpLinearLayout;
  * Created by huangyifei on 16/10/21.
  */
 
-public class LoadMoreView extends MvpLinearLayout<LoadMoreView, LoadMorePresenter> implements ILoadMoreView {
+public class LoadMoreView<M> extends MvpLinearLayout<LoadMoreView, LoadMorePresenter> implements ILoadMoreView {
 
     private TextView mText;
     private ProgressBar mProgressBar;
+    private LceListView<M> mLceListView;
 
-    public LoadMoreView(Context context) {
+    public LoadMoreView(Context context, LceListView<M> lceListView) {
         super(context);
         initViews();
+        mLceListView = lceListView;
     }
 
     private void initViews() {
@@ -41,7 +43,7 @@ public class LoadMoreView extends MvpLinearLayout<LoadMoreView, LoadMorePresente
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                getPresenter().setState(LoadMorePresenter.STATE_LOADING);
+                getPresenter().setLoadMoreState(LoadMorePresenter.STATE_LOADING);
             }
         });
         setState(LoadMorePresenter.STATE_NORMAL);
@@ -75,5 +77,11 @@ public class LoadMoreView extends MvpLinearLayout<LoadMoreView, LoadMorePresente
                 setClickable(true);
                 break;
         }
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        mLceListView.getPresenter().setLoadMorePresenter(getPresenter());
     }
 }

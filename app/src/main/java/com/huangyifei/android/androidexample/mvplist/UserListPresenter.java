@@ -10,22 +10,24 @@ import com.huangyifei.android.androidexample.mvplist.model.UserListModel.UserMod
 
 public class UserListPresenter extends LceListPresenter<UserModel> {
 
-    public UserListPresenter() {
-        loadData(LceListPresenter.LOAD_OTHER_REFRESH);
-    }
-
     @Override
-    public void loadData(final int loadType) {
-        super.loadData(loadType);
+    public void refreshData(boolean pullToRefresh) {
+        super.refreshData(pullToRefresh);
         UserListModel.loadUserList(new UserListModel.LoadFinishListener() {
             @Override
             public void onLoadFinish(UserListModel model) {
-                if (loadType == LOAD_MORE) {
-                    model.mData.clear();
-                    getView().addData(model);
-                } else {
-                    getView().setData(model);
-                }
+                getView().setData(model);
+            }
+        });
+    }
+
+    @Override
+    public void loadMoreData() {
+        UserListModel.loadUserList(new UserListModel.LoadFinishListener() {
+            @Override
+            public void onLoadFinish(UserListModel model) {
+                model.mData.clear();
+                getView().addData(model);
             }
         });
     }

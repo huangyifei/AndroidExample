@@ -22,14 +22,13 @@ import java.util.List;
  * Created by huangyifei on 16/10/21.
  */
 
-public abstract class LceListView<M> extends MvpFrameLayout<LceListView<M>, LceListPresenter<M>> implements ILceListView<M, IListModel<M>>, LoadMorePresenter.LoadMoreListener {
+public abstract class LceListView<M> extends MvpFrameLayout<LceListView<M>, LceListPresenter<M>> implements ILceListView<M, IListModel<M>> {
 
     private ProgressBar mProgressBar;
     private SwipeRefreshLayout mContent;
     private TextView mErrorView;
-    private LoadMoreView mLoadMoreView;
     private BaseListAdapter<M> mAdapter;
-
+    private LoadMoreView mLoadMoreView;
 
     public LceListView(Context context) {
         super(context);
@@ -76,17 +75,15 @@ public abstract class LceListView<M> extends MvpFrameLayout<LceListView<M>, LceL
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                LoadMorePresenter loadMorePresenter = mLoadMoreView.getPresenter();
-                if (loadMorePresenter.isLoading()) return;
-                loadMorePresenter.setListener(LceListView.this);
+
                 int lastItem = ((LinearLayoutManager) recyclerView.getLayoutManager()).findLastVisibleItemPosition();
                 if (lastItem + 1 == recyclerView.getLayoutManager().getItemCount()) {
-                    loadMorePresenter.setState(LoadMorePresenter.STATE_LOADING);
+                    getPresenter().setLoadMoreState(ILoadMorePresenter.STATE_LOADING);
                 }
             }
         });
 
-        mLoadMoreView = new LoadMoreView(c);
+        mLoadMoreView = new LoadMoreView(c, this);
         mAdapter = new BaseListAdapter<M>(mLoadMoreView) {
             @Override
             public BaseViewHolder<M> onCreateItemViewHolder(ViewGroup parent, int viewType) {
@@ -140,40 +137,30 @@ public abstract class LceListView<M> extends MvpFrameLayout<LceListView<M>, LceL
     @Override
     public void setData(IListModel<M> listModel) {
         mAdapter.setData(listModel.getData());
-        mLoadMoreView.getPresenter().setState(LoadMorePresenter.STATE_NORMAL);
+        getPresenter().setLoadMoreState(ILoadMorePresenter.STATE_NORMAL);
         showContent();
     }
 
     @Override
     public void loadData(boolean pullToRefresh) {
-        getPresenter().loadData(pullToRefresh ? LceListPresenter.LOAD_PULL_REFRESH : LceListPresenter.LOAD_OTHER_REFRESH);
+        getPresenter().refreshData(pullToRefresh);
     }
 
     @Override
     public void addData(IListModel<M> listModel) {
-        LoadMorePresenter presenter = mLoadMoreView.getPresenter();
         if (listModel == null) {
-            presenter.setState(LoadMorePresenter.STATE_ERROR);
+            getPresenter().setLoadMoreState(ILoadMorePresenter.STATE_ERROR);
         } else {
             List<M> listData = listModel.getData();
-            if (listData.isEmpty()) {
-                presenter.setState(LoadMorePresenter.STATE_FINISHED);
+            if (listData == null || listData.isEmpty()) {
+                getPresenter().setLoadMoreState(ILoadMorePresenter.STATE_FINISHED);
             } else {
                 mAdapter.addData(listModel.getData());
-                presenter.setState(LoadMorePresenter.STATE_NORMAL);
+                getPresenter().setLoadMoreState(ILoadMorePresenter.STATE_NORMAL);
             }
         }
     }
 
-    @Override
-    public void loadMoreData() {
-        getPresenter().loadData(LceListPresenter.LOAD_MORE);
-    }
-
-    @Override
-    public void onLoadMore() {
-        loadMoreData();
-    }
 
     /**
      * Get the error message for a certain Exception that will be shown on {@link

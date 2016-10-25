@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.huangyifei.android.androidexample.BaseActivity;
-import com.huangyifei.android.androidexample.mvplist.base.LceListPresenter;
 import com.huangyifei.android.androidexample.mvplist.view.UserListView;
 
 /**

@@ -7,7 +7,7 @@ import com.hannesdorfmann.mosby.mvp.lce.MvpLceView;
  */
 
 public interface ILceListView<M, LM extends IListModel<M>> extends MvpLceView<LM> {
-    void loadMoreData();
 
     void addData(LM listModel);
+
 }
