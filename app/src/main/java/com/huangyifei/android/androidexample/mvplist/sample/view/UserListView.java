@@ -1,4 +1,4 @@
-package com.huangyifei.android.androidexample.mvplist.view;
+package com.huangyifei.android.androidexample.mvplist.sample.view;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -6,11 +6,11 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.huangyifei.android.androidexample.mvplist.UserListPresenter;
-import com.huangyifei.android.androidexample.mvplist.base.BaseViewHolder;
-import com.huangyifei.android.androidexample.mvplist.base.LceListPresenter;
-import com.huangyifei.android.androidexample.mvplist.base.LceListView;
-import com.huangyifei.android.androidexample.mvplist.model.UserListModel.UserModel;
+import com.huangyifei.android.androidexample.mvplist.sample.presenter.UserListPresenter;
+import com.huangyifei.android.androidexample.mvplist.base.view.BaseViewHolder;
+import com.huangyifei.android.androidexample.mvplist.base.presenter.LceListPresenter;
+import com.huangyifei.android.androidexample.mvplist.base.view.LceListView;
+import com.huangyifei.android.androidexample.mvplist.sample.model.UserListModel.UserModel;
 
 /**
  * Created by huangyifei on 16/10/21.

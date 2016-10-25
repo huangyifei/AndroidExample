@@ -1,4 +1,4 @@
-package com.huangyifei.android.androidexample.mvplist.base;
+package com.huangyifei.android.androidexample.mvplist.base.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

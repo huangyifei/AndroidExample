@@ -1,6 +1,7 @@
-package com.huangyifei.android.androidexample.mvplist.base;
+package com.huangyifei.android.androidexample.mvplist.base.presenter;
 
 import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
+import com.huangyifei.android.androidexample.mvplist.base.view.LceListView;
 
 /**
  * Created by huangyifei on 16/10/21.

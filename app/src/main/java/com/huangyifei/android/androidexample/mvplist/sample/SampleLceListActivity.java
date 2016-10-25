@@ -1,16 +1,16 @@
-package com.huangyifei.android.androidexample.mvplist;
+package com.huangyifei.android.androidexample.mvplist.sample;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.huangyifei.android.androidexample.BaseActivity;
-import com.huangyifei.android.androidexample.mvplist.view.UserListView;
+import com.huangyifei.android.androidexample.mvplist.sample.view.UserListView;
 
 /**
  * Created by huangyifei on 16/10/21.
  */
-public class TestListActivity extends BaseActivity {
+public class SampleLceListActivity extends BaseActivity {
 
     UserListView mUserListView;
 
@@ -23,6 +23,6 @@ public class TestListActivity extends BaseActivity {
 
 
     public static void launch(Activity activity) {
-        activity.startActivity(new Intent(activity, TestListActivity.class));
+        activity.startActivity(new Intent(activity, SampleLceListActivity.class));
     }
 }

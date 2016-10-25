@@ -28,7 +28,7 @@
             android:name=".task.MultiTaskActivity"
             android:launchMode="singleInstance" />
 
-        <activity android:name=".mvplist.TestListActivity" />
+        <activity android:name=".mvplist.sample.SampleLceListActivity" />
 
     </application>
 

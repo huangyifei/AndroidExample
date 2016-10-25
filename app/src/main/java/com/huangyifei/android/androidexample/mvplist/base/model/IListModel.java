@@ -1,4 +1,4 @@
-package com.huangyifei.android.androidexample.mvplist.base;
+package com.huangyifei.android.androidexample.mvplist.base.model;
 
 import java.util.List;
 

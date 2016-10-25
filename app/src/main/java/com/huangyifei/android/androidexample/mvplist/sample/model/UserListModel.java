@@ -1,8 +1,8 @@
-package com.huangyifei.android.androidexample.mvplist.model;
+package com.huangyifei.android.androidexample.mvplist.sample.model;
 
 import android.os.AsyncTask;
 
-import com.huangyifei.android.androidexample.mvplist.base.IListModel;
+import com.huangyifei.android.androidexample.mvplist.base.model.IListModel;
 
 import java.util.ArrayList;
 import java.util.List;

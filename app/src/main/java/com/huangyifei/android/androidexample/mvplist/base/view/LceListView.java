@@ -1,4 +1,4 @@
-package com.huangyifei.android.androidexample.mvplist.base;
+package com.huangyifei.android.androidexample.mvplist.base.view;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -15,6 +15,9 @@ import android.widget.Toast;
 import com.hannesdorfmann.mosby.mvp.layout.MvpFrameLayout;
 import com.hannesdorfmann.mosby.mvp.lce.LceAnimator;
 import com.huangyifei.android.androidexample.R;
+import com.huangyifei.android.androidexample.mvplist.base.model.IListModel;
+import com.huangyifei.android.androidexample.mvplist.base.presenter.ILoadMorePresenter;
+import com.huangyifei.android.androidexample.mvplist.base.presenter.LceListPresenter;
 
 import java.util.List;
 
@@ -27,7 +30,7 @@ public abstract class LceListView<M> extends MvpFrameLayout<LceListView<M>, LceL
     private ProgressBar mProgressBar;
     private SwipeRefreshLayout mContent;
     private TextView mErrorView;
-    private BaseListAdapter<M> mAdapter;
+    private LceListAdapter<M> mAdapter;
     private LoadMoreView mLoadMoreView;
 
     public LceListView(Context context) {
@@ -84,7 +87,7 @@ public abstract class LceListView<M> extends MvpFrameLayout<LceListView<M>, LceL
         });
 
         mLoadMoreView = new LoadMoreView(c, this);
-        mAdapter = new BaseListAdapter<M>(mLoadMoreView) {
+        mAdapter = new LceListAdapter<M>(mLoadMoreView) {
             @Override
             public BaseViewHolder<M> onCreateItemViewHolder(ViewGroup parent, int viewType) {
                 return LceListView.this.createViewHolder(parent, viewType);

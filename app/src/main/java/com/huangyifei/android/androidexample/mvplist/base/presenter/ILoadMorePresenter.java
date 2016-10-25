@@ -1,4 +1,4 @@
-package com.huangyifei.android.androidexample.mvplist.base;
+package com.huangyifei.android.androidexample.mvplist.base.presenter;
 
 /**
  * Created by huangyifei on 16/10/25.

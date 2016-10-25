@@ -1,4 +1,4 @@
-package com.huangyifei.android.androidexample.mvplist.base;
+package com.huangyifei.android.androidexample.mvplist.base.view;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -8,6 +8,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.hannesdorfmann.mosby.mvp.layout.MvpLinearLayout;
+import com.huangyifei.android.androidexample.mvplist.base.presenter.LoadMorePresenter;
 
 /**
  * Created by huangyifei on 16/10/21.

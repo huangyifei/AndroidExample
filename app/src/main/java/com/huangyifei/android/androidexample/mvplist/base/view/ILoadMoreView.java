@@ -1,4 +1,4 @@
-package com.huangyifei.android.androidexample.mvplist.base;
+package com.huangyifei.android.androidexample.mvplist.base.view;
 
 import com.hannesdorfmann.mosby.mvp.MvpView;
 

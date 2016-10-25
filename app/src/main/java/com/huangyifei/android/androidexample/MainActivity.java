@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.huangyifei.android.androidexample.savestate.ActivityOne;
-import com.huangyifei.android.androidexample.mvplist.TestListActivity;
+import com.huangyifei.android.androidexample.mvplist.sample.SampleLceListActivity;
 
 public class MainActivity extends BaseActivity {
     public static final String TAG = MainActivity.class.getName();
@@ -20,6 +20,6 @@ public class MainActivity extends BaseActivity {
     }
 
     public void launchTask(View view) {
-        TestListActivity.launch(this);
+        SampleLceListActivity.launch(this);
     }
 }

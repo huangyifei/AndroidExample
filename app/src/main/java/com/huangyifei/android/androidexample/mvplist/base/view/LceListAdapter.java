@@ -1,4 +1,4 @@
-package com.huangyifei.android.androidexample.mvplist.base;
+package com.huangyifei.android.androidexample.mvplist.base.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
@@ -9,14 +9,14 @@ import java.util.List;
  * Created by huangyifei on 16/10/21.
  */
 
-public abstract class BaseListAdapter<M> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public abstract class LceListAdapter<M> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final int VIEW_TYPE_MORE = -1;
 
     private List<M> mData;
     private LoadMoreView mLoadMoreView;
 
-    public BaseListAdapter(LoadMoreView loadMoreView) {
+    public LceListAdapter(LoadMoreView loadMoreView) {
         mLoadMoreView = loadMoreView;
     }
 
