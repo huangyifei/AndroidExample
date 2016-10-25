@@ -14,7 +14,8 @@ public class LoadMorePresenter extends MvpBasePresenter<LoadMoreView> implements
     @Override
     public void setLoadMoreState(int state) {
         if (mState == state) return;
-        if (mState == STATE_FINISHED && state == STATE_LOADING) return;
+
+        if (state == STATE_LOADING && (mState == STATE_FINISHED || mState == STATE_ERROR)) return;
         if (isViewAttached()) {
             getView().setState(state);
         }
