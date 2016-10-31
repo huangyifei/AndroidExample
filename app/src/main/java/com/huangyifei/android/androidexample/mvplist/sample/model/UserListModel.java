@@ -30,7 +30,7 @@ public class UserListModel implements IListModel<UserListModel.UserModel> {
             @Override
             protected UserListModel doInBackground(String... params) {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
 
                 }

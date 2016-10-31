@@ -3,6 +3,7 @@ package com.huangyifei.android.androidexample;
 import android.os.Bundle;
 import android.view.View;
 
+import com.huangyifei.android.androidexample.image.ImageTestActivity;
 import com.huangyifei.android.androidexample.savestate.ActivityOne;
 import com.huangyifei.android.androidexample.mvplist.sample.SampleLceListActivity;
 
@@ -16,7 +17,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public void launchSaveState(View view) {
-        ActivityOne.launch(this);
+        ImageTestActivity.launch(this);
     }
 
     public void launchTask(View view) {

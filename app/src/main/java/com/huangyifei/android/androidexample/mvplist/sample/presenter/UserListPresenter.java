@@ -26,7 +26,7 @@ public class UserListPresenter extends LceListPresenter<UserModel> {
         UserListModel.loadUserList(new UserListModel.LoadFinishListener() {
             @Override
             public void onLoadFinish(UserListModel model) {
-                model.mData.clear();
+//                model.mData.clear();
                 getView().addData(model);
             }
         });

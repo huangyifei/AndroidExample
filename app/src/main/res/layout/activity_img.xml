@@ -12,15 +12,27 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.huangyifei.android.androidexample.MainActivity">
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="launchSaveState"
-        android:text="看看图片加载" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="launchTask"
-        android:visibility="gone"
-        android:text="测试Task" />
+        android:layout_marginBottom="30dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showTransformation"
+            android:text="Transformation" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showDrawable"
+            android:text="Drawable处理圆角" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="130dp"
+        android:layout_height="130dp" />
+
 </LinearLayout>
