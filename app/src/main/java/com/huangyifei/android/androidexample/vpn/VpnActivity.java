@@ -61,7 +61,6 @@ public class VpnActivity extends BaseActivity implements View.OnClickListener {
             }
             br.readLine();
             OpenVpnApi.startVpn(this, config, null, null);
-//            OpenVpnApi.startVpn(this, config, "bldmstr", "19851218");
         } catch (IOException | RemoteException e) {
             e.printStackTrace();
         }

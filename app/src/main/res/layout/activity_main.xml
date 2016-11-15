@@ -22,5 +22,5 @@
         android:layout_height="wrap_content"
         android:onClick="launchTask"
         android:visibility="visible"
-        android:text="MVP" />
+        android:text="测试VPN" />
 </LinearLayout>
