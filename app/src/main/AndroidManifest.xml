@@ -45,6 +45,14 @@
         </service>
 
         <activity
+            android:name="de.blinkt.openvpn.VpnAuthAcitivity"
+            android:autoRemoveFromRecents="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:taskAffinity=".DisconnectVPN"
+            android:theme="@style/blinkt.dialog" />
+
+        <activity
             android:name="de.blinkt.openvpn.DisconnectVPNActivity"
             android:autoRemoveFromRecents="true"
             android:excludeFromRecents="true"

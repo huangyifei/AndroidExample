@@ -46,7 +46,7 @@ public class VpnAuthAcitivity extends Activity {
 
     private void startVpn() {
         try {
-            OpenVpnApi.startVpnInternal(this, "", "", "");
+            OpenVpnApi.startVpnInternal(this, mConfig, mUsername, mPw);
         } catch (RemoteException e) {
 
         }

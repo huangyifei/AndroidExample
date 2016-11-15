@@ -19,6 +19,14 @@ import de.blinkt.openvpn.core.VPNLaunchHelper;
 
 public class OpenVpnApi {
 
+    /**
+     *
+     * @param context
+     * @param inlineConfig 一般都保存在文件中，通过读取文件获取配置信息
+     * @param userName 某些ovpn的连接方式需要用户名和密码，可以为空
+     * @param pw 某些ovpn的连接方式需要用户名和密码，可以为空
+     * @throws RemoteException
+     */
     public static void startVpn(Context context, String inlineConfig, String userName, String pw) throws RemoteException {
         if (TextUtils.isEmpty(inlineConfig)) throw new RemoteException("config is empty");
         Intent intent = VpnService.prepare(context);
